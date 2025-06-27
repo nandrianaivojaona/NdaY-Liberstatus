@@ -1,0 +1,150 @@
+<!-- index.html with dynamic sections -->
+
+<!DOCTYPE html>
+<html lang="mg">
+<head>
+  <meta charset="UTF-8" />
+  <title id="dynamic-title">Liberstatus - Takelam-pandraisana</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mockData = { churchName: document.querySelector('.welcome-text').textContent.split('eto ')[1] || "Paroasy St Louis Ambohinierana" }; // Dynamically fetch church name
+      const titleElement = document.getElementById('dynamic-title');
+      if (mockData.churchName) {
+        titleElement.textContent = `${mockData.churchName} - Takelam-pandraisana`;
+      }
+    });
+  </script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+  <!-- Chart.js -->
+  <script src="assets/js/chart.min.js"></script>
+  <script src="assets/js/chartjs-plugin-datalabels.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Header with Vatican Flag Background -->
+  <header class="parish-header">
+    <div class="header-left">
+      <span class="welcome-text">Tonga Soa eto</span>
+    </div>
+
+    <!-- Center Section: Church Logo + Name -->
+    <!-- Header with Vatican Flag Background -->
+
+
+  <!-- Center: Parish Logo + Name -->
+  <div class="header-center">
+    <img id="selected-parish-logo"
+         src=""
+         alt="Church Logo"
+         class="parish-logo hidden" />
+    <h2 id="parish-name"></h2>
+    <p id="district-name" class="parish-subtitle"></p>
+    <p id="vicariate-name" class="parish-subtitle"></p>
+    <p id="diocese-name" class="parish-subtitle"></p>
+    <p id="archdiocese-name" class="parish-subtitle"></p>
+  </div>
+
+  <!-- Right Side: Sign In Button -->
+  <div class="header-right">
+    <button id="sign-in-toggle"><i class="fas fa-sign-in-alt"></i> Hiditra</button>
+  </div>
+</header>
+
+<!-- Territory Selection Card -->
+
+<section id="territory-selection-card" class="menu-card-tooltip hidden">
+  <h3>Tonga soa, safidio ny Paroasy na Fiangonana</h3>
+  <form id="menu-card-form">
+    <label for="archdiocese-select">Archidiocese:</label>
+    <select id="archdiocese-select" class="territory-select">
+      <option value="">— Safidio ny ArkiDiosezy —</option>
+    </select>
+
+    <label for="diocese-select">Diosezy:</label>
+    <select id="diocese-select" class="territory-select">
+      <option value="">— Safidio ny Diosezy —</option>
+    </select>
+
+    <label for="vicariate-select">Vikaria:</label>
+    <select id="vicariate-select" class="territory-select">
+      <option value="">— Safidio ny Vikaria —</option>
+    </select>
+
+    <label for="district-select">District:</label>
+    <select id="district-select" class="territory-select">
+      <option value="">— Safidio ny Distrika —</option>
+    </select>
+
+    <label for="parish-select">Paroasy:</label>
+    <select id="parish-select" class="territory-select">
+      <option value="">— Safidio ny Paroasy na Fiangonana—</option>
+    </select>
+  </form>
+</section>
+
+    <!-- Right Section: Sign In Button -->
+    <div class="header-right">
+      <button id="sign-in-toggle"><i class="fas fa-sign-in-alt"></i> Hiditra</button>
+    </div>
+  </header>
+
+  <!-- Navigation Menu -->
+  <nav class="main-menu" style="display: none;">
+    <ul>
+      <li data-section="home">🏠 Takelaka Fandraisana</li>
+      <li data-section="liberstatus">👥 Liberstatus</li>
+      <li data-section="contributions">💰 Adidy, Hasina sy Ezaka</li>
+      <li data-section="reports">📊 Tatitra Satan'ny Mpino Katolika</li>
+    </ul>
+  </nav>
+
+  <!-- Content Area -->
+  <section id="content" class="main-content" style="display: none;"></section>
+
+  <!-- Main Content Area -->
+  <section id="content" class="main-content">
+    <p>⏳ Takelaka eo ampahamanana...</p>
+  </section>
+
+  <!-- Management Section -->
+  <div id="management-section" class="management hidden">
+    <h3>🔧 APV & Family Leader Management</h3>
+    <button id="addMemberBtn" data-requires-login disabled>➕ Add Member</button>
+    <button id="modifyFamilyBtn" data-requires-login disabled>✏️ Modify Family</button>
+    <button id="moveMpinoBtn" data-requires-login disabled>🔁 Move Mpino</button>
+    <button id="deleteMpinoBtn" data-requires-login disabled>❌ Delete Mpino</button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="vatican-footer">
+    <div class="footer-content">
+      <img src="../assets/images/NdaY_Logo.png" alt="NdaY Logo" class="nday-logo nday-logo-large"/>
+      <p>&copy; 2025 NdaY' Catholic Liberstatus</p>
+    </div>
+  </footer>
+
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal" style="display: none;">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Fidirana</h2>
+      <form id="loginForm">
+        <input type="email" id="login-email" placeholder="Email" required />
+        <input type="password" id="login-password" placeholder="Tenimiafina" required />
+        <button type="submit">Hiditra</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- App Script -->
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

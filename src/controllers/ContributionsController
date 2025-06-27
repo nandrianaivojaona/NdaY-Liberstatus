@@ -1,0 +1,123 @@
+import mockData from '../data/mockData.js';
+import { ROLES } from '../auth/roles.js';
+
+export default class ContributionsController {
+  constructor(currentUser) {
+    this.currentUser = currentUser;
+    this.userRole = currentUser.role;
+    this.userAPV = currentUser.apv;
+    this.userFaritra = currentUser.faritra;
+
+    this.renderSummary();
+    this.renderForm();
+    this.renderTable();
+  }
+
+  getVisibleContributions() {
+    if (this.userRole === ROLES.priest) return mockData.contributions;
+
+    if (this.userRole === ROLES.faritra) {
+      const allowedAPVs = mockData.users
+        .filter(u => u.faritra === this.userFaritra && u.apv)
+        .map(u => u.apv);
+      return mockData.contributions.filter(c => allowedAPVs.includes(c.apv));
+    }
+
+    if (this.userRole === ROLES.apv) {
+      return mockData.contributions.filter(c => c.apv === this.userAPV);
+    }
+
+    return []; // others can't view
+  }
+
+  renderSummary() {
+    const container = document.getElementById('contribution-summary');
+    const visible = this.getVisibleContributions();
+    const total = visible.reduce((sum, c) => sum + Number(c.amount), 0);
+    container.innerHTML = `<p><strong>Total Contribution:</strong> ${total.toLocaleString()} Ar</p>`;
+  }
+
+  renderForm() {
+    const form = document.getElementById('contributionForm');
+    const categorySelect = document.getElementById('category');
+    const apvSelect = document.getElementById('apv');
+
+    // Fill categories
+    mockData.contributionCategories.forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat;
+      opt.textContent = cat;
+      categorySelect.appendChild(opt);
+    });
+
+    // Fill APVs
+    const apvs = this.getUserWritableAPVs();
+    apvs.forEach(apv => {
+      const opt = document.createElement('option');
+      opt.value = apv;
+      opt.textContent = apv;
+      apvSelect.appendChild(opt);
+    });
+
+    // Role restrictions
+    if (!["Priest", "Faritra Leader", "APV Leader"].includes(this.userRole)) {
+      form.style.display = 'none';
+      return;
+    }
+
+    // Submit logic
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const category = categorySelect.value;
+      const amount = Number(document.getElementById('amount').value);
+      const apv = apvSelect.value;
+
+      if (!category || !amount || !apv) {
+        alert("Fenoy tsara ny angona.");
+        return;
+      }
+
+      mockData.contributions.push({ category, amount, apv });
+      alert("Vita ny fanoratana anarana!");
+
+      form.reset();
+      this.renderTable();
+      this.renderSummary();
+    });
+  }
+
+  renderTable() {
+    const tbody = document.querySelector('#contributionTable tbody');
+    tbody.innerHTML = "";
+
+    const rows = this.getVisibleContributions();
+    rows.forEach(c => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${c.category}</td>
+        <td>${c.apv}</td>
+        <td>${Number(c.amount).toLocaleString()}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  getUserWritableAPVs() {
+    if (this.userRole === ROLES.priest) {
+      return [...new Set(mockData.users.filter(u => u.apv).map(u => u.apv))];
+    }
+
+    if (this.userRole === ROLES.faritra) {
+      return [...new Set(mockData.users
+        .filter(u => u.faritra === this.userFaritra && u.apv)
+        .map(u => u.apv))];
+    }
+
+    if (this.userRole === ROLES.apv) {
+      return [this.userAPV];
+    }
+
+    return [];
+  }
+}

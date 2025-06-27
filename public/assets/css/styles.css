@@ -1,0 +1,769 @@
+:root {
+  --vatican-yellow: #ffc72c;
+  --vatican-white: #ffffff;
+  --vatican-red: #800000;
+  --vatican-gold: #d4af37;
+}
+
+body {
+  font-family: 'Times New Roman', serif;
+  background-color: var(--vatican-white);
+  color: #333;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Times New Roman', serif;
+  color: var(--vatican-red);
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--vatican-red);
+}
+
+button {
+  cursor: pointer;
+}
+
+/* === Header with Vatican Flag Background === */
+.parish-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: white;
+  min-height: 120px;
+  background-size: cover;
+  background-color: #800000;
+  z-index: 1;
+}
+
+/* Dimmed overlay over flag */
+.parish-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* Optional: Overlay for better text readability */
+.parish-header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* Welcome Text (Left) */
+.header-left {
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+/* Parish Title Section (Centered) */
+.header-center {
+  text-align: center;
+  flex-grow: 1;
+  z-index: 2;
+}
+
+.flag-logo,
+.vatican-logo,
+.nday-logo {
+  max-height: 100px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.hidden {
+  display: none;
+}
+
+.header-right {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sign-in-btn {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.sign-in-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* === Main Menu Navigation === */
+.main-menu {
+  background: var(--vatican-red);
+  padding: 0.5rem;
+}
+
+.main-menu ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu li {
+  color: white;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.main-menu li:hover,
+.main-menu li.active {
+  background-color: #8a130f;
+  transform: translateY(-2px);
+}
+
+/* === Content Area === */
+.main-content {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* === Priest Message Card === */
+.priest-message {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--vatican-red);
+}
+
+.message-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.priest-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--vatican-gold);
+}
+
+.message-meta {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.message-content {
+  line-height: 1.6;
+}
+
+.message-actions {
+  margin-top: 1rem;
+}
+
+/* === Dashboard Cards === */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--vatican-red);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  text-align: center;
+}
+
+/* === Charts Section === */
+.charts-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+/* === Calendar Section === */
+.calendar-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-events {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.event {
+  padding: 1rem;
+  border-left: 3px solid var(--vatican-gold);
+  background-color: #f9f9f9;
+}
+
+.event-date {
+  font-weight: bold;
+  color: var(--vatican-red);
+}
+
+.event-title {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.event-desc {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* === Forms === */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.error-message {
+  color: var(--vatican-red);
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* === Expandable Territory Tree === */
+.territory-tree {
+  margin: 1rem;
+}
+
+.territory-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  border-left: 8px solid var(--vatican-red);
+}
+
+.territory-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.territory-card h3,
+.territory-card h4,
+.territory-card h5 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.territory-card h3 {
+  font-size: 1.5em;
+}
+.territory-card h4 {
+  font-size: 1.3em;
+}
+.territory-card h5 {
+  font-size: 1.1em;
+}
+
+/* === Button to Expand/Collapse Sections === */
+.toggle-btn {
+  background-color: var(--vatican-yellow);
+  color: var(--vatican-red);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-btn:hover {
+  background-color: #e6c200;
+}
+
+/* === Nested Sections (for APV/Faritra) === */
+.nested-section {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+  padding-left: 20px;
+  margin-top: 8px;
+}
+
+.nested-section.open {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+/* === Sacrament List === */
+.sacrament-list {
+  list-style-type: none;
+  padding-left: 20px;
+  margin-top: 4px;
+}
+
+.sacrament-list li {
+  font-size: 0.9em;
+}
+
+/* === Family Info Block === */
+.family-block {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+
+.family-sacrament-summary {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.family-sacrament-summary li {
+  background-color: #f7f7f7;
+  padding: 6px 10px;
+  border-radius: 5px;
+}
+
+/* === Tooltip for Member Names === */
+.member-item {
+  position: relative;
+  cursor: help;
+  padding: 6px 8px;
+  border-bottom: 1px dashed #aaa;
+}
+
+.member-item::after {
+  content: attr(title);
+  visibility: hidden;
+  opacity: 0;
+  width: 200px;
+  background: #fff;
+  color: #333;
+  text-align: left;
+  white-space: pre;
+  border: 1px solid var(--vatican-yellow);
+  padding: 10px;
+  z-index: 100;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s;
+}
+
+.member-item:hover::after {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* === Modal Dialog === */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 8px;
+  position: relative;
+  animation: fadeInDown 0.3s ease-out;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: black;
+}
+
+/* === Login Form === */
+#loginForm input[type="email"],
+#loginForm input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  margin: 10px 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  transition: border-color 0.3s ease-in-out;
+}
+
+#loginForm input:focus {
+  border-color: var(--vatican-red);
+  outline: none;
+}
+
+#loginForm button[type="submit"] {
+  width: 100%;
+  background-color: var(--vatican-yellow);
+  color: var(--vatican-red);
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+#loginForm button[type="submit"]:hover {
+  background-color: #e6c200;
+}
+
+/* === Loading Spinner === */
+.loading-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ccc;
+  border-top-color: var(--vatican-red);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === Footer Copyright === */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background: var(--vatican-red);
+  color: white;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.nday-logo {
+  height: 30px;
+  vertical-align: middle;
+}
+
+/* === Management Buttons === */
+.management {
+  margin: 2rem auto;
+  max-width: 1000px;
+  padding: 0 16px;
+}
+
+.management button {
+  margin-right: 10px;
+  background-color: var(--vatican-red);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.management button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.management button:hover {
+  background-color: #8a130f;
+}
+
+/* === Holy Associations Table === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+thead {
+  background-color: var(--vatican-red);
+  color: white;
+}
+
+th, td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* === Holy Association & Vaomiera Lists === */
+ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+ul li {
+  margin: 0.5rem 0;
+}
+
+/* === Export Buttons === */
+.export-buttons {
+  margin-top: 1rem;
+}
+
+.export-buttons button {
+  margin-right: 10px;
+  background-color: var(--vatican-red);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.export-buttons button:hover {
+  background-color: #8a130f;
+}
+
+/* === Admin Panel Forms === */
+.family-head-form select,
+.holy-assoc-form select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.exec-team-editor {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.exec-team-editor h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.exec-team-editor ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.exec-team-editor li {
+  margin-bottom: 0.5rem;
+}
+
+.exec-team-editor select {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.exec-team-editor button {
+  margin-top: 1rem;
+  background-color: var(--vatican-red);
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.exec-team-editor button:hover {
+  background-color: #8a130f;
+}
+
+.landing-page {
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+}
+
+.landing-page h2 {
+  color: var(--vatican-red);
+  margin-bottom: 1rem;
+}
+
+.landing-page label,
+.landing-page select {
+  margin: 1rem 0;
+  font-size: 1rem;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* === Dashboard Cards === */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.card {
+  background: var(--vatican-gold);
+  width: auto;
+  height: auto;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--vatican-red);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  color: var(--vatican-red);
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  text-align: center;
+}

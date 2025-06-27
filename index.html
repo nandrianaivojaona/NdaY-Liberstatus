@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="mg">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="public/assets/images/NdaY_Logo.png" type="image/png" />
+  <title>NdaY’Catholic Liberstatus</title>
+  <link rel="stylesheet" href="public/assets/css/styles.css" />
+</head>
+<body>
+  <header style="display: flex; justify-content: flex-end; align-items: center; padding: 10px;">
+    <!-- React App Root -->
+    <div id="sign-in-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Hiditra</h2>
+        <form id="sign-in-form">
+          <label for="username">Anarana mpampiasa:</label>
+          <input type="text" id="username" name="username" required />
+          <label for="password">Tenimiafina:</label>
+          <input type="password" id="password" name="password" required />
+          <button type="submit">Hiditra</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <!-- React App Root -->
+
+  <div id="root"></div>
+
+  <!-- Footer -->
+
+  <footer class="vatican-footer">
+    <div class="footer-content" style="display: flex; align-items: center; justify-content: space-between;">
+      <img src="/assets/images/NdaY_Logo.png" alt="NdaY Logo" class="nday-logo nday-logo-large" style="margin-right: 10px;"/>
+      <p style="margin: 0;">&copy; 2025 NdaY’Catholic Liberstatus</p>
+    </div>
+  </footer>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
