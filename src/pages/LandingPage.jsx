@@ -1,60 +1,62 @@
 import React, { useState, useEffect } from 'react';
-import mockData from '../data/mockData.js';
-console.log("✅ LandingPage is entered after importing mockData");
-function LandingPage({ onTerritorySelect }) {
-  console.log("✅ LandingPage: Initialized with mockData");
+import mockData from '../data/mockData';
 
-  // Initial state for each level
+export default function LandingPage({ onTerritorySelect }) {
   const [archdioceses, setArchdioceses] = useState(mockData.territories.archdioceses);
   const [selectedArchdiocese, setSelectedArchdiocese] = useState('');
+  const [selectedArchdioceseId, setSelectedArchdioceseId] = useState('');
+
   const [dioceses, setDioceses] = useState([]);
   const [selectedDiocese, setSelectedDiocese] = useState('');
+  const [selectedDioceseId, setSelectedDioceseId] = useState('');
+
   const [vicariates, setVicariates] = useState([]);
   const [selectedVicariate, setSelectedVicariate] = useState('');
+  const [selectedVicariateId, setSelectedVicariateId] = useState('');
+
   const [districts, setDistricts] = useState([]);
   const [selectedDistrict, setSelectedDistrict] = useState('');
+  const [selectedDistrictId, setSelectedDistrictId] = useState('');
+
   const [parishes, setParishes] = useState([]);
   const [selectedParish, setSelectedParish] = useState('');
+  const [selectedParishId, setSelectedParishId] = useState('');
+  
+  // Track full hierarchy for final return
+  const [territoryChain, setTerritoryChain] = useState(null);
 
-  // Load Archdioceses on mount
+  // Initialize on mount
   useEffect(() => {
-    console.log("✅ Mounting LandingPage");
-
+    console.log("✅ LandingPage mounted");
     if (mockData.territories?.archdioceses?.length > 0) {
       setArchdioceses(mockData.territories.archdioceses);
-    } else {
-      console.warn("⚠️ No archdioceses found in mockData");
     }
   }, []);
 
   // Step 1: Archdiocese selection
   const handleArchdioceseChange = (e) => {
     const archName = e.target.value;
-    console.log("🟡 Archdiocese selected:", archName);
+    console.log("🔴 Archdiocese selected:", archName);
 
-    if (!archName) {
-      setDioceses([]);
-      setVicariates([]);
-      setDistricts([]);
-      setParishes([]);
-      setSelectedDiocese('');
-      setSelectedVicariate('');
-      setSelectedDistrict('');
-      setSelectedParish('');
-      return;
-    }
+    const arch = archdioceses.find(a => a.name === archName);
+    if (!arch) return;
 
-    const arch = mockData.territories.archdioceses.find(a => a.name === archName);
-    if (arch && arch.dioceses && arch.dioceses.length > 0) {
-      console.log("✅ Dioceses found:", arch.dioceses);
-      setDioceses(arch.dioceses);
-    } else {
-      console.warn("⚠️ No dioceses found for this Archdiocese");
-    }
     setSelectedArchdiocese(archName);
+    setSelectedArchdioceseId(arch.id);
+
+    // Reset lower levels
+    setDioceses(arch.dioceses || []);
+    setSelectedDiocese('');
+    setSelectedDioceseId('');
     setVicariates([]);
+    setSelectedVicariate('');
+    setSelectedVicariateId('');
     setDistricts([]);
+    setSelectedDistrict('');
+    setSelectedDistrictId('');
     setParishes([]);
+    setSelectedParish('');
+    setSelectedParishId('');
   };
 
   // Step 2: Diocese selection
@@ -62,56 +64,42 @@ function LandingPage({ onTerritorySelect }) {
     const dioceseName = e.target.value;
     console.log("🔵 Diocese selected:", dioceseName);
 
-    if (!dioceseName || !selectedArchdiocese) {
-      console.warn("⚠️ No Archdiocese selected yet!");
-      return;
-    }
-
-    const arch = archdioceses.find(a => a.name === selectedArchdiocese);
-    const dio = arch?.dioceses.find(d => d.name === dioceseName);
-
-    if (dio && dio.vicariates && dio.vicariates.length > 0) {
-      console.log("✅ Vicariates found:", dio.vicariates);
-      setVicariates(dio.vicariates);
-    } else {
-      console.warn("⚠️ No vicariates found for this Diocese");
-    }
+    const diocese = dioceses.find(d => d.name === dioceseName);
+    if (!diocese) return;
 
     setSelectedDiocese(dioceseName);
-    setVicariates(dio?.vicariates || []);
-    setDistricts([]);
-    setParishes([]);
+    setSelectedDioceseId(diocese.id);
+
+    // Reset lower levels
+    setVicariates(diocese.vicariates || []);
     setSelectedVicariate('');
+    setSelectedVicariateId('');
+    setDistricts([]);
     setSelectedDistrict('');
+    setSelectedDistrictId('');
+    setParishes([]);
     setSelectedParish('');
+    setSelectedParishId('');
   };
 
   // Step 3: Vicariate selection
   const handleVicariateChange = (e) => {
     const vicariateName = e.target.value;
-    console.log("🟣 Vicariate selected:", vicariateName);
+    console.log("🟢 Vicariate selected:", vicariateName);
 
-    if (!vicariateName || !selectedDiocese) {
-      console.warn("⚠️ No Diocese selected yet!");
-      return;
-    }
-
-    const arch = archdioceses.find(a => a.name === selectedArchdiocese);
-    const dio = arch?.dioceses.find(d => d.name === selectedDiocese);
-    const vic = dio?.vicariates.find(v => v.name === vicariateName);
-
-    if (vic && vic.districts && vic.districts.length > 0) {
-      console.log("✅ Districts found:", vic.districts);
-      setDistricts(vic.districts);
-    } else {
-      console.warn("⚠️ No districts found for this Vicariate");
-    }
+    const vicariate = vicariates.find(v => v.name === vicariateName);
+    if (!vicariate) return;
 
     setSelectedVicariate(vicariateName);
-    setDistricts(vic?.districts || []);
-    setParishes([]);
+    setSelectedVicariateId(vicariate.id);
+
+    // Reset lower levels
+    setDistricts(vicariate.districts || []);
     setSelectedDistrict('');
+    setSelectedDistrictId('');
+    setParishes([]);
     setSelectedParish('');
+    setSelectedParishId('');
   };
 
   // Step 4: District selection
@@ -119,160 +107,167 @@ function LandingPage({ onTerritorySelect }) {
     const districtName = e.target.value;
     console.log("🟠 District selected:", districtName);
 
-    if (!districtName || !selectedVicariate) {
-      console.warn("⚠️ No Vicariate selected yet!");
-      return;
-    }
-
     const dist = districts.find(dt => dt.name === districtName);
-    if (dist && dist.parishes && dist.parishes.length > 0) {
-      console.log("✅ Parishes found:", dist.parishes);
-      setParishes(dist.parishes);
+    if (!dist || !Array.isArray(dist.parishes)) {
+      console.warn("⚠️ No valid parishes found for this District");
+      setParishes([]);
     } else {
-      console.warn("⚠️ No parishes found for this District");
+      setParishes(dist.parishes);
     }
 
     setSelectedDistrict(districtName);
+    setSelectedDistrictId(dist?.id || '');
     setSelectedParish('');
+    setSelectedParishId('');
   };
 
-  // Step 5: Parish selection — final step
+  // Step 5: Parish selection – final step
   const handleParishChange = (e) => {
     const name = e.target.value;
-    console.log("🟢 Parish selected:", name);
+    console.log("🟡 Parish selected:", name);
 
     const parish = parishes.find(p => p.name === name);
-    if (parish) {
-      console.log("🎉 Final territory selected:", parish);
-      setSelectedParish(name);
-      onTerritorySelect(parish);
-    } else {
+    if (!parish) {
       console.error("❌ No valid parish found in mockData for:", name);
+      return;
     }
+
+    const finalTerritory = {
+      archdiocese: selectedArchdiocese,
+      archdioceseId: selectedArchdioceseId,
+
+      diocese: selectedDiocese,
+      dioceseId: selectedDioceseId,
+
+      vicariate: selectedVicariate,
+      vicariateId: selectedVicariateId,
+
+      district: selectedDistrict,
+      districtId: selectedDistrictId,
+
+      parish: parish.name,
+      parishId: parish.id
+    };
+
+    console.log("🎉 Final territory chain selected:", finalTerritory);
+    onTerritorySelect(finalTerritory); // Pass full chain back
+
+    setSelectedParish(name);
+    setSelectedParishId(parish.id);
   };
-  console.log("✅ LandingPage: Component mounted");
+
   return (
     <section className="landing-page" style={{ display: 'block', visibility: 'visible' }}>
-      {/* Header Section */}
+      {/* Header */}
       <header style={{ textAlign: 'center', marginBottom: '20px' }}>
         <h1 style={{ visibility: 'visible' }}>Tonga Soa</h1>
         <img
           src="../public/assets/images/Flag_Of_Vatican_City.png"
           alt="Vatican Logo"
-          style={{ width: '100px', height: '100px', margin: '10px auto', display: 'block' }}
+          style={{
+            width: '100px',
+            height: '100px',
+            margin: '10px auto',
+            display: 'block'
+          }}
         />
-        <h2 style={{ visibility: 'visible' }}>Fifidianana Fiangonana anaty Rafitra Katolika.</h2>
-        <h3 style={{ visibility: 'visible' }}>Safidio ireo mandrafitra ny Fiangonanao</h3>
+        <h2 style={{ visibility: 'visible' }}>Fifidianana Fiangonana anaty Rafitra Katolika</h2>
+        <h3 style={{ visibility: 'visible' }}>Safidio ny Paroasy na Fiangonana</h3>
       </header>
 
-      
+      {/* Archdiocese Selection */}
+      <div className="step">
+        <label htmlFor="archdiocese">Archidiocese:</label>
+        <select
+          id="archdiocese"
+          value={selectedArchdiocese}
+          onChange={handleArchdioceseChange}
+          style={{ visibility: 'visible' }}
+        >
+          <option>-- Safidio ny Archidiocese --</option>
+          {archdioceses.map((arch, index) => (
+            <option key={`arch-${index}`} value={arch.name}>
+              {arch.name}
+            </option>
+          ))}
+        </select>
+      </div>
 
-      {/* Step 1: Archdiocese */}
-      <label htmlFor="archdiocese-select" style={{ visibility: 'visible' }}>Archidiocese:</label>
-      <select
-        id="archdiocese-select"
-        onChange={handleArchdioceseChange}
-        value={selectedArchdiocese}
-        style={{ visibility: 'visible' }}
-      >
-        <option value="">— Safidio ny ArkiDiosezy —</option>
-        {archdioceses.map((arch, index) => (
-          <option key={index} value={arch.name} style={{ visibility: 'visible' }}>
-            {arch.name}
-          </option>
-        ))}
-      </select>
-
-      {/* Step 2: Diocese */}
-      {selectedArchdiocese && (
-        <>
-          <label style={{ visibility: 'visible' }}>Diosezy:</label>
+      {/* Diocese Selection */}
+      {dioceses.length > 0 && (
+        <div className="step">
+          <label>Diocèse:</label>
           <select
-            onChange={handleDioceseChange}
             value={selectedDiocese}
+            onChange={handleDioceseChange}
             style={{ visibility: 'visible' }}
           >
-            <option style={{ visibility: 'visible' }}>-- Safidio ny Diosezy --</option>
-            {dioceses.map((d, i) => (
-              <option key={i} value={d.name} style={{ visibility: 'visible' }}>
+            <option>-- Safidio ny Diocèse --</option>
+            {dioceses.map((d, index) => (
+              <option key={`diocese-${index}`} value={d.name}>
                 {d.name}
               </option>
             ))}
           </select>
-        </>
+        </div>
       )}
 
-      {/* Step 3: Vicariate */}
-      {selectedDiocese && (
-        <>
-          <label style={{ visibility: 'visible' }}>Vikaria:</label>
+      {/* Vicariate Selection */}
+      {vicariates.length > 0 && (
+        <div className="step">
+          <label>Vikaria:</label>
           <select
-            onChange={handleVicariateChange}
             value={selectedVicariate}
+            onChange={handleVicariateChange}
             style={{ visibility: 'visible' }}
           >
-            <option style={{ visibility: 'visible' }}>-- Safidio ny Vikaria --</option>
-            {vicariates.map((v, i) => (
-              <option key={i} value={v.name} style={{ visibility: 'visible' }}>
+            <option>-- Safidio ny Vikaria --</option>
+            {vicariates.map((v, index) => (
+              <option key={`vicariate-${index}`} value={v.name}>
                 {v.name}
               </option>
             ))}
           </select>
-        </>
+        </div>
       )}
 
-      {/* Step 4: District */}
-      {selectedVicariate && (
-        <>
-          <label style={{ visibility: 'visible' }}>Distrika:</label>
+      {/* District Selection */}
+      {districts.length > 0 && (
+        <div className="step">
+          <label>Distrika:</label>
           <select
-            onChange={handleDistrictChange}
             value={selectedDistrict}
+            onChange={handleDistrictChange}
             style={{ visibility: 'visible' }}
           >
-            <option style={{ visibility: 'visible' }}>-- Safidio ny Distrika --</option>
-            {districts.map((dt, i) => (
-              <option key={i} value={dt.name} style={{ visibility: 'visible' }}>
+            <option>-- Safidio ny Distrika --</option>
+            {districts.map((dt, index) => (
+              <option key={`district-${index}`} value={dt.name}>
                 {dt.name}
               </option>
             ))}
           </select>
-        </>
+        </div>
       )}
 
-      {/* Step 5: Parish */}
-      {selectedDistrict && (
-        <>
-          <label style={{ visibility: 'visible' }}>Paroasy_Fiangonana:</label>
+      {/* Parish Selection */}
+      {parishes.length > 0 && (
+        <div className="step">
+          <label>Paroasy / Fiangonana:</label>
           <select
-            onChange={handleParishChange}
             value={selectedParish}
+            onChange={handleParishChange}
             style={{ visibility: 'visible' }}
           >
-            <option style={{ visibility: 'visible' }}>-- Safidio ny Paroasy na Fiangonana --</option>
-            {parishes.map((p, i) => (
-              <option key={i} value={p.name} style={{ visibility: 'visible' }}>
+            <option>-- Safidio ny Paroasy / Fiangonana --</option>
+            {parishes.map((p, index) => (
+              <option key={`parish-${p.id}`} value={p.name}>
                 {p.name}
               </option>
             ))}
           </select>
-        </>
+        </div>
       )}
     </section>
   );
 }
-export default LandingPage;
-// This component allows users to select a territory step by step
-// and passes the selected parish information back to the parent component.
-// It handles the state and rendering of each selection step, ensuring
-// that only valid options are shown based on previous selections.
-// The console logs provide detailed feedback during the selection process,
-// which can help with debugging and understanding the flow of data.
-// The component is designed to be user-friendly, guiding users through the
-// selection process with clear labels and options.
-// The final selected parish is passed to the parent component via the onTerritorySelect callback.
-// This allows the parent to handle the selected territory as needed,
-// such as navigating to a detailed view or updating the application state.
-// Note: Ensure that the mockData structure matches the expected format
-// for this component to function correctly. The console logs will help
-// identify any issues with the data structure or selection flow.

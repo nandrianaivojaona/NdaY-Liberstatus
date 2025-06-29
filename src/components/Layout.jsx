@@ -28,7 +28,7 @@ export default function Layout({ children, parishName, showParishLogo = false, s
       <header className="parish-header">
         {/* Left Side: Welcome Text */}
         <div className="header-left">
-          <span className="welcome-text">Tonga Soa eto</span>
+          <span className="welcome-text">Tonga Soa eto amin'ny</span>
         </div>
 
         {/* Center Section: Logo + Name */}
