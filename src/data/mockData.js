@@ -18,7 +18,7 @@ const mockData = {
   users: [
     // Priest
     {
-      id: "U001",
+      id: "PAR001_U000",
       email: "priest@example.com",
       password: "123",
       role: ROLES.priest,
@@ -32,11 +32,23 @@ const mockData = {
 
     // Parish Leader
     {
-      id: "U002",
+      id: "PAR001_U001",
       email: "parish-leader@example.com",
       password: "123",
       role: ROLES.parish_leader,
-      name: "Mario",
+      name: "Hasina Mario",
+      archdiocese: "ARCH001",
+      diocese: "DI001",
+      vicariate: "VIK001",
+      district: "DIS001",
+      parish: "PAR001"
+    },
+    {
+      id: "PAR001_U002",
+      email: "parish-leader2@example.com",
+      password: "123",
+      role: ROLES.parish_leader,
+      name: "Pdte ...Aina",
       archdiocese: "ARCH001",
       diocese: "DI001",
       vicariate: "VIK001",
@@ -46,7 +58,7 @@ const mockData = {
 
     // Faritra Leader
     {
-      id: "U003",
+      id: "PAR001_U003",
       email: "faritra@example.com",
       password: "123",
       role: ROLES.faritra,
@@ -61,7 +73,7 @@ const mockData = {
 
     // APV Leader
     {
-      id: "U004",
+      id: "PAR001_U004",
       email: "apv@example.com",
       password: "123",
       role: ROLES.apv,
@@ -77,7 +89,7 @@ const mockData = {
 
     // Family Head
     {
-      id: "U005",
+      id: "PAR001_U005",
       email: "family-head@example.com",
       password: "123",
       role: ROLES.family,
@@ -89,10 +101,70 @@ const mockData = {
       parish: "PAR001",
       faritra: "FAR001",
       apv: "APV001"
-    }
+    },
+    {
+      id: "PAR001_U006",
+      email: "caes-leader@example.com",
+      password: "123",
+      role: ROLES.parish_leader,
+      name: "R. Hery",
+      archdiocese: "ARCH001",
+      diocese: "DI001",
+      vicariate: "VIK001",
+      district: "DIS001",
+      parish: "PAR001"
+    },
+    {
+      id: "PAR001_U007",
+      email: "ha-leader@example.com",
+      password: "123",
+      role: ROLES.holyAssociations_leader,
+      name: "R. Mamy",
+      archdiocese: "ARCH001",
+      diocese: "DI001",
+      vicariate: "VIK001",
+      district: "DIS001",
+      parish: "PAR001"
+    },
+    {
+      id: "PAR001_U008",
+      email: "parish-leader@example.com",
+      password: "123",
+      role: ROLES.parish_leader,
+      name: "Melanie Rasoanaivo",
+      archdiocese: "ARCH001",
+      diocese: "DI001",
+      vicariate: "VIK001",
+      district: "DIS001",
+      parish: "PAR001"
+    },
+    {
+      id: "PAR001_U009",
+      email: "parish-leader@example.com",
+      password: "123",
+      role: ROLES.parish_leader,
+      name: "Rabelaisoa",
+      archdiocese: "ARCH001",
+      diocese: "DI001",
+      vicariate: "VIK001",
+      district: "DIS001",
+      parish: "PAR001"
+    },
+    {
+      id: "PAR001_U010",
+      email: "parish-leader@example.com",
+      password: "123",
+      role: ROLES.parish_leader,
+      name: "Rakoto",
+      archdiocese: "ARCH001",
+      diocese: "DI001",
+      vicariate: "VIK001",
+      district: "DIS001",
+      parish: "PAR001"
+    },
   ],
 
-  mpino: [
+  believers: [
     {
       id: "M001",
       fullName: "Jean Rakoto",
@@ -107,7 +179,7 @@ const mockData = {
       baptismrenewalPlace: "St. Louis Ambohinierana",
       firstCommunionDate: "2016-06-10",
       firstCommunionPlace: "St. Louis Ambohinierana",
-      baptismePlace: "St. Louis Ambohinierana",
+      baptismPlace: "St. Louis Ambohinierana",
       confirmationPlace: "St. Louis Ambohinierana",
       renewalPatron: "",
       confirmationDate: "2018-08-20",
@@ -119,9 +191,9 @@ const mockData = {
       lastActivity : "2023-10-01",
       lastActivityPlace: "St. Louis Ambohinierana",
       family: "FAM001",
-      tafo: "T001",
-      apvid: "APV1",
-      faritra: "FA001",
+      roofHousehold: "T001",
+      apv: "APV1",
+      zone: "FA001",
       parish: "PAR001",
       district: "DIS001",
       vicariate: "VIK001",
@@ -132,7 +204,7 @@ const mockData = {
       id: "M002",
       fullName: "Lydia",
       baptismDate: "2008-03-12",
-      baptismePlace: "St. Louis Ambohinierana",
+      baptismPlace: "St. Louis Ambohinierana",
       baptismName: "",
       baptismPatron: "",
       confessDate: "2014-04-15",
@@ -149,9 +221,9 @@ const mockData = {
       marriageWitnesses: "",
       status: "inactive",
       family: "FAM001",
-      tafo: "T001",
+      roofHouseHold: "T001",
       apv: "APV1",
-      faritra: "FA001",
+      zone: "FA001",
       parish: "PAR001",
       district: "DIS001",
       vicariate: "VIK001",
@@ -181,9 +253,9 @@ const mockData = {
       marriagePlace: "St. Louis Ambohinierana",
       status: "Morts",
       family: "FAM002",
-      tafo: "T002",
+      roofHouseHolds: "T002",
       apv: "APV2",
-      faritra: "FA001",
+      zone: "FA001",
       parish: "PAR001",
       district: "DIS001",
       vicariate: "VIK001",
@@ -213,9 +285,9 @@ const mockData = {
       marriagePlace: "St. Louis Ambohinierana",
       status: "Morts",
       family: "FAM002",
-      tafo: "T002",
+      roofHouseHolds: "T002",
       apv: "APV2",
-      faritra: "FA001",
+      zone: "FA001",
       parish: "PAR001",
       district: "DIS001",
       vicariate: "VIK001",
@@ -245,9 +317,9 @@ const mockData = {
       marriageWitnesses: "",
       status: "Morts",
       family: "FAM002",
-      tafo: "T002",
+      roofHouseHold: "T002",
       apv: "APV2",
-      faritra: "FA001",
+      zone: "FA001",
       parish: "PAR001",
       district: "DIS001",
       vicariate: "VIK001",
@@ -278,9 +350,9 @@ const mockData = {
       renewalPatron: "",
       status: "active",
       family: "FAM002",
-      tafo: "T002",
+      roofHouseHold: "T002",
       apv: "APV2",
-      faritra: "FA002",
+      zone: "FA002",
       parish: "PAR001",
       district: "DIS001",
       vicariate: "VIK001",
@@ -308,9 +380,9 @@ const mockData = {
       marriageWitnesses: "",
       status: "active",
       family: "FAM003",
-      tafo: "T003",
+      roofHouseHold: "T003",
       apv: "APV3",
-      faritra: "FA003",
+      zone: "FA003",
       parish: "PAR001",
       district: "DIS001",
       vicariate: "VIK001",
@@ -338,9 +410,9 @@ const mockData = {
       marriageWitnesses: "",
       status: "active",
       family: "FAM003",
-      tafo: "T003",
+      roofHouseHold: "T003",
       apv: "APV3",
-      faritra: "FA003",
+      zone: "FA003",
       parish: "PAR001",
       district: "DIS001",
       vicariate: "VIK001",
@@ -368,9 +440,9 @@ const mockData = {
       marriageWitnesses: "",
       status: "active",
       family: "FAM004",
-      tafo: "T004",
+      roofHouseHold: "T004",
       apv: "APV4",
-      faritra: "FA004",
+      zone: "FA004",
       parish: "PAR001",
       district: "DIS001",
       vicariate: "VIK001",
@@ -398,9 +470,9 @@ const mockData = {
       marriageWitnesses: "",
       status: "active",
       family: "FAM004",
-      tafo: "T004",
+      roofHouseHold: "T004",
       apv: "APV4",
-      faritra: "FA004",
+      zone: "FA004",
       parish: "PAR001",
       district: "DIS001",
       vicariate: "VIK001",
@@ -503,6 +575,10 @@ const mockData = {
         id: "ARCH001",
         name: "Archidiocese Antananarivo",
         code: "ARCH001",
+        execTeam: {
+          leader1: "", // Priest
+          secretary1: "" // Parish Leader
+        },
 
         dioceses: [
           {
@@ -510,8 +586,9 @@ const mockData = {
             name: "Diosezy Antananarivo",
             code: "DI001",
             execTeam: {
-              leader1: "U001", // Priest
-              secretary1: "U002" // Parish Leader
+              leader1: "", // Priest
+              secretary1: "" // Parish Leader
+            
             },
 
             vicariates: [
@@ -520,8 +597,8 @@ const mockData = {
                 name: "Vikaria Atsinana",
                 code: "VIK001",
                 execTeam: {
-                  leader1: "U001",
-                  secretary1: "U002"
+                  leader1: "",
+                  secretary1: ""
                 },
 
                 districts: [
@@ -530,41 +607,42 @@ const mockData = {
                     name: "District Alasora",
                     code: "DIS001",
                     execTeam: {
-                      leader1: "U002",
-                      treasurer: "U007",
-                      secretary1: "U003"
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
                     },
+                   
 
                     parishes: [
                       {
                         id: "PAR001",
-                        name: "Paroasy Saint Louis Ambohinierana",
+                        name: "Saint Louis Ambohinierana Parish",
                         code: "PAR001",
                         logo: "logo_PAR001",
                         address: "Alasora, Analamanga",
-                        pretra: "Père Jean",
+                        priest: "Père Jean",
                         contact: "+261 32 95 999 60",
                         execTeam: {
-                          FilohaFK: "U017",
-                          Lefitra1: "",
-                          Lefitra2: "",
-                          Mpitambola: "U018",
-                          Mpitantsoratra: "U019",
-                          MpitantsoratraMpanampy: "U020",
-                          Mpanolotsaina: ""
+                          president: "PAR001_U001", // Parish Leader
+                          vicePresident1: "PAR001_U002", // Vice Parish Leader
+                          vicePresident2: "",
+                          treasurer: "",
+                          secretary: "",
+                          deputySecretary: "",
+                          advisor: ""
                         },
-                        CAES: [
+                        financesCouncil: [
                           {
                             id: "CAES001",
                             name: "CAES Alasora",
                             contact: "+261 32 95 999 61",
                             execTeam: {
-                              Filoha: "U021",
-                              Lefitra1: "",
-                              Lefitra2: "",
-                              Mpitambola: "U022",
-                              Mpitantsoratra: "U023",
-                              MpitantsoratraMpanampy: ""
+                              president: "U006",
+                              vicePresident1: "",
+                              vicePresident2: "",
+                              treasurer: "",
+                              secretary: "",
+                              deputySecretary: ""
                             },
                             memberIds: ["M001", "M002"]
                           }
@@ -576,230 +654,913 @@ const mockData = {
                             category: "FIFAKRI",
                             contact: "",
                             execTeam: {
-                              Filoha: "",
-                              Lefitra1: "",
-                              Lefitra2: "",
-                              Mpitambola: "",
-                              Mpitantsoratra: "",
-                              MpitantsoratraMpanampy: ""
+                              president: "",
+                              vicePresident1: "",
+                              vicePresident2: "",
+                              treasurer: "",
+                              secretary: "",
+                              deputySecretary: ""
                             },
                             memberIds: ["M001", "M002"]
                           }
                         ],
-                        vovonana: [
+                        councilsGroups: [
                           {
                             id: "VOV001",
-                            name: "Vona Olondehibe",
-                            category: "Vona Olondehibe",
+                            name: "Elder Group",
+                            category: "Elder Group",
                             contact: "",
-
-
                             execTeam: {
-                              Filoha: "U013",
-                              Lefitra1: "",
-                              Lefitra2: "",
-                              Mpitambola: "U014",
-                              Mpitantsoratra: "U015",
-                              MpitantsoratraMpanampy: "U016"
+                              president: "U013",
+                              vicePresident1: "",
+                              vicePresident2: "",
+                              treasurer: "U014",
+                              secretary: "U015",
+                              deputySecretary: "U016"
                             },
                             memberIds: ["M001", "M002"]
                           }
                         ],
-                        actionCommittees: [
+                        commissions: [
                           {
                             id: "AC001",
-                            name: "Vaomiera Fandaminana",
-                            category: "Vaomiera Fandaminana",
+                            name: "Organizing Commission",
+                            category: "Organizing Commission",
                             contact: "",
                             execTeam: {
-                              Filoha: "U017",
-                              Lefitra1: "",
-                              Lefitra2: "",
-                              Mpitambola: "U018",
-                              Mpitantsoratra: "U019",
-                              MpitantsoratraMpanampy: "U020"
+                              president: "U017",
+                              vicePresident1: "",
+                              vicePresident2: "",
+                              treasurer: "U018",
+                              secretary: "U019",
+                              deputySecretary: "U020"
                             },
                             memberIds: ["M001", "M002"]
                           }
                         ],
-                        faritras: [
+                        zones: [
                           {
                             id: "FAR001",
                             name: "Masina Maria Mpanjakavavy",
-                            fokontany: "Ambodivoanjo",
+                            neighborhood: "Ambodivoanjo",
                             contact: "+261 32 95 999 59",
                             execTeam: {
-                              FilohaFaritra: "U003",
-                              Lefitra1Faritra: "U004",
-                              Lefitra2Faritra: "U005",
-                              Mpitambola: "U006",
-                              Mpitantsoratra: "U007",
-                              Mpitantsoratra2: "U008",
+                              zonePresident: "U003",
+                              zoneVicePresident1: "U004",
+                              zoneVicePresident2: "U005",
+                              zoneTreasurer: "U006",
+                              zoneSecretary: "U007",
+                              zoneSecondSecretary: "U008"
                             },
                             apvs: [
                               {
                                 id: "APV001",
                                 name: "APV1",
                                 execTeam: {
-                                  leader1: "U004",
-                                  secretary1: "U017"
+                                  leader: "U004",
+                                  secretary: "U017"
                                 },
-                                households: ["T001"]
+                                roofHouseholds: ["T001"]
                               },
-                            {
-                              id: "APV002",
-                              name: "APV2",
-                              execTeam: {
-                                leader1: "",
-                                secretary1: ""
+                              {
+                                id: "APV002",
+                                name: "APV2",
+                                execTeam: {
+                                  leader: "",
+                                  secretary: ""
+                                },
+                                roofHouseholds: ["T002"]
                               },
-                              households: ["T002"]
-                            },
-                            {
-                              id: "APV003",
-                              name: "APV3",
-                              execTeam: {
-                                leader1: "U005",
-                                secretary1: "U018"
-                              },
-                              households: ["T003"]
-                            },
-                            ],
+                              {
+                                id: "APV003",
+                                name: "APV3",
+                                execTeam: {
+                                  leader: "U005",
+                                  secretary: "U018"
+                                },
+                                roofHouseholds: ["T003"]
+                              }
+                            ]
                           },
                           {
                             id: "FAR002",
                             name: "Md François d'Assise",
-                            fokontany: "Ambohidrazaka",
+                            neighborhood: "Ambohidrazaka",
                             contact: "+261 38 99 946 56",
                             execTeam: {
-                              FilohaFaritra: "U020",
-                              Mpitambola: "U021",
-                              Mpitantsoratra: "U022",
-                              Lefitra1Faritra: "",
-                              Lefitra2Faritra: "",
+                              zonePresident: "U020",
+                              zoneTreasurer: "U021",
+                              zoneSecretary: "U022",
+                              zoneVicePresident1: "",
+                              zoneVicePresident2: "",
                               contact2: "",
-                              contact3: ""
+                              contact3: "",
+                              zoneSecondSecretary: ""
                             },
                             apvs: [
                               {
                                 id: "APV1",
                                 name: "APV1",
                                 execTeam: {
-                                  leader1: "U023",
-                                  secretary1: "U024"
+                                  leader: "U023",
+                                  secretary: "U024"
                                 },
-                                tafos: ["T003"]
+                                roofHouseHolds: ["T003"]
                               },
                               {
-                              id: "APV2",
-                              name: "APV2",
-                              execTeam: {
-                                leader1: "U025",
-                                secretary1: "U026"
-                              },
-                              tafos: ["T004", "T005", "T006"]
-                              },
-                              {
-                              id: "APV3",
-                              name: "APV3",
-                              execTeam: {
-                                leader1: "U027",
-                                secretary1: "U028"
-                              },
-                              households: ["T007"]
+                                id: "APV2",
+                                name: "APV2",
+                                execTeam: {
+                                  leader: "U025",
+                                  secretary: "U026"
+                                },
+                                roofHouseHolds: ["T004", "T005", "T006"]
                               },
                               {
-                              id: "APV4",
-                              name: "APV4",
-                              execTeam: {
-                                leader1: "U029",
-                                secretary1: "U030"
+                                id: "APV3",
+                                name: "APV3",
+                                execTeam: {
+                                  leader: "U027",
+                                  secretary: "U028"
+                                },
+                                roofHouseholds: ["T007"]
                               },
-                              households: ["T008"]
-                              },
+                              {
+                                id: "APV4",
+                                name: "APV4",
+                                execTeam: {
+                                  leader: "U029",
+                                  secretary: "U030"
+                                },
+                                roofHouseholds: ["T008"]
+                              }
                             ]
                           },
                           {
                             id: "FAR003",
                             name: "Olontsambatra Victoire Rasomanarivo",
-                            fokontany: "Miadana-Ambohitromby-Tsilazaina",
+                            neighborhood: "Miadana-Ambohitromby-Tsilazaina",
                             contact: "+261 32 95 999 61",
                             execTeam: {
-                              FilohaFaritra: "U031",
-                              Lefitra1Faritra: "U032",
-                              Lefitra2Faritra: "U033",
-                              Mpitambola: "U032",
-                              Mpitantsoratra: "U033"
+                              zonePresident: "U031",
+                              zoneVicePresident1: "U032",
+                              zoneVicePresident2: "U033",
+                              zoneTreasurer: "U032",
+                              zoneSecretary: "U033",
+                              zoneSecondSecretary: ""
                             },
                             apvs: [
                               {
                                 id: "APV4",
                                 name: "APV4",
                                 execTeam: {
-                                  FilohaAPV: "U034",
-                                  Mpitantsoratra: "U035",
-                                  Mpitambola: "U036"
+                                  apvPresident: "U034",
+                                  secretary: "U035",
+                                  treasurer: "U036"
                                 },
-                                tafos: ["T009", "T010"]
+                                roofHouseHolds: ["T009", "T010"]
                               },
                               {
                                 id: "APV5",
                                 name: "APV5",
                                 execTeam: {
-                                  leader1: "U036",
-                                  secretary1: "U037"
+                                  leader: "U036",
+                                  secretary: "U037"
                                 },
-                                households: ["T011", "T012", "T013"]
+                                roofHouseholds: ["T011", "T012", "T013"]
                               },
                               {
                                 id: "APV6",
                                 name: "APV6",
                                 execTeam: {
-                                  leader1: "U038",
-                                  secretary1: "U039"
+                                  leader: "U038",
+                                  secretary: "U039"
                                 },
-                                tafos: ["T014"]
+                                roofHouseHolds: ["T014"]
                               }
-                            ],
-                            },
+                            ]
+                          },
                           {
                             id: "FAR004",
-                            name: "Md Benoît",
-                            fokontany: "Amboaroy-Ankadiaivo",
+                            name: "Mb Benoît",
+                            neighborhood: "Amboaroy-Ankadiaivo",
                             contact1: "+261 34 81 007 73",
                             execTeam: {
-                              leader1: "Pdt Aingo",
-                              Mpitambola: "Mpitambola Aina",
-                              Mpitantsoratra: ""
+                              leader: "Pdt Aingo",
+                              treasurer: "Mpitambola Aina",
+                              secretary: ""
                             },
                             apvs: [
                               {
                                 id: "APV7",
                                 name: "APV7",
                                 execTeam: {
-                                  leader1: "U040",
-                                  secretary1: "U041"
+                                  leader: "U040",
+                                  secretary: "U041"
                                 },
-                                households: ["T015", "T016"]
+                                roofHouseHolds: ["T015", "T016"]
                               },
                               {
                                 id: "APV8",
                                 name: "APV8",
                                 execTeam: {
-                                  leader1: "U042",
-                                  secretary1: "U043"
+                                  leader: "U042",
+                                  secretary: "U043"
                                 },
-                                households: ["T017"]
+                                roofHouseholds: ["T017"]
                               }
                             ]
                           }
-                            
-                          
                         ]
+                      },
+                      
+                      { id: "PAR002",
+                        name: "Fiangonanana Anganomasina",
+                        logo: "logo_PAR002",
+                        address: "Anganomasina, Alasora, Analamanga"},
+                      { id: "PAR003",
+                        name: "Samboranto",
+                        logo: "logo_PAR003",
+                        address: "Samboranto, Alasora, Analamanga" 
                       }
+
+
                     ]
+                    
+                  },
+                  {
+                  id: "DIS002",
+                  name: "District Ambohijanaka",
+                  code: "DIS002",
+                  execTeam: {
+                    leader1: "",
+                    treasurer: "",
+                    secretary1: ""
+                  },
+                  parishes: [
+                    {
+                      id: "PAR001",
+                      name: "Paroasy Ambohijanaka",
+                      code: "PAR004",
+                      logo: "logo_PAR004",
+                      address: "Ambohijanaka, Analamanga",
+                      priest: "Père Jean",
+                      contact: "+261 32 95 999 60",
+                      execTeam: {
+                        president: "",
+                        vicePresident1: "",
+                        vicePresident2: "",
+                        treasurer: "",
+                        secretary: "",
+                        deputySecretary: "",
+                        advisor: ""
+                      },
+                      CAES: [],
+                      holyAssociations: [],
+                      councilsGroups: [],
+                      commissions: [],
+                      areas: []
+                    }
+                  ]
+                }
+                ]
+              },
+              {
+                id: "VIK002",
+                name: "Vikaria Afovoany",
+                code: "VIK002",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Mahamasina",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
                   }
                 ]
+              }
+            ]
+          },
+          {
+            id: "DI002",
+            name: "Diosezy Antsirabe",
+            code: "DI002",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Antsirabe",
+                code: "VIK003",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Antsirabe",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            id: "DI003",
+            name: "Diosezy Maintirano",
+            code: "DI003",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Maintirano",
+                code: "VIK004",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Maintirano",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            id: "DI004",
+            name: "Diosezy Miarinarivo",
+            code: "DI004",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Miarinarivo",
+                code: "VIK005",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Miarinarivo",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            id: "DI005",
+            name: "Diosezy Tsiroanomandidy",
+            code: "DI005",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Tsiroanomandidy",
+                code: "VIK001",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Tsiroanomandidy",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          }
+
+
+        ]
+      },
+      {
+        id: "ARCH002",
+        name: "Archidiocese Antsiranana",
+        code: "ARCH002",
+        execTeam: {
+          leader1: "",
+          secretary1: ""
+        },
+        dioceses: [
+          {
+            id: "DI001",
+            name: "Diosezy Antsiranana",
+            code: "DI001",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Antsiranana",
+                code: "VIK001",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Antsiranana",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            id: "DI002",
+            name: "Diosezy Ambanja",
+            code: "DI002",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Ambanja",
+                code: "VIK001",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Ambanja",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            id: "DI003",
+            name: "Diosezy Mahajanga",
+            code: "DI003",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Mahajanga",
+                code: "VIK001",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Mahajanga",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            id: "DI004",
+            name: "Diosezy Port Bergé",
+            code: "DI004",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Port Bergé",
+                code: "VIK001",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Port Bergé",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "ARCH003",
+        name: "Archidiocese Toamasina",
+        code: "ARCH003",
+        execTeam: {
+          leader1: "",
+          secretary1: ""
+        },
+        dioceses: [
+          {
+            id: "DI001",
+            name: "Diosezy Toamasina",
+            code: "DI001",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Toamasina",
+                code: "VIK001",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Toamasina",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            id: "DI002",
+            name: "Diosezy Fenoarivo Atsinanana",
+            code: "DI002",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Fenoarivo Atsinanana",
+                code: "VIK001",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Fenoarivo Atsinanana",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            id: "DI003",
+            name: "Diosezy Ambatondrazaka",
+            code: "DI003",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Ambatondrazaka",
+                code: "VIK001",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Ambatondrazaka",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            id: "DI004",
+            name: "Diosezy Moramanga",
+            code: "DI004",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Moramanga",
+                code: "VIK001",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Moramanga",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+
+      },
+      {
+        id: "ARCH004",
+        name: "Archidiocese Fianarantsoa",
+        code: "ARCH004",
+        execTeam: {
+          leader1: "",
+          secretary1: ""
+        },
+        dioceses: [
+          {
+            id: "DI001",
+            name: "Diosezy Fianarantsoa",
+            code: "DI001",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Fianarantsoa",
+                code: "VIK001",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Fianarantsoa",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            id: "DI002",
+            name: "Diosezy Ihosy",
+            code: "DI002",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Ihosy",
+                code: "VIK001",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Ihosy",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            id: "DI003",
+            name: "Diosezy Farafangana",
+            code: "DI003",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Farafangana",
+                code: "VIK001",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: [
+                  {
+                    id: "DIS001",
+                    name: "District Farafangana",
+                    code: "DIS001",
+                    execTeam: {
+                      leader1: "",
+                      treasurer: "",
+                      secretary1: ""
+                    },
+                    parishes: []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+          id: "DI004",
+          name: "Diosezy Mananjary",
+          code: "DI004",
+          execTeam: {
+            leader1: "",
+            secretary1: ""
+          },
+          vicariates: [
+            {
+              id: "VIK001",
+              name: "Vikaria Mananjary",
+              code: "VIK001",
+              execTeam: {
+                leader1: "",
+                secretary1: ""
+              },
+              districts: []
+      },
+
+      {
+        id: "ARCH005",
+        name: "Archidiocese Toliara",
+        code: "ARCH005",
+        execTeam: {
+          leader1: "",
+          secretary1: ""
+        }
+      }
+    ]
+          },
+          {
+            id: "DI005",
+            name: "Diosezy Ambositra",
+            code: "DI005",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Ambositra",
+                code: "VIK001",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        id: "ARCH005",
+        name: "Archidiocese Toliara",
+        code: "ARCH005",
+        execTeam: {
+          leader1: "",
+          secretary1: ""
+        },
+        dioceses: [
+          {
+            id: "DI001",
+            name: "Diosezy Toliara",
+            code: "DI001",
+            execTeam: {
+              leader1: "",
+              secretary1: ""
+            },
+            vicariates: [
+              {
+                id: "VIK001",
+                name: "Vikaria Toliara",
+                code: "VIK001",
+                execTeam: {
+                  leader1: "",
+                  secretary1: ""
+                },
+                districts: []
               }
             ]
           }
@@ -808,7 +1569,8 @@ const mockData = {
     ]
   },
 
-  tafos: [
+
+  roofHouseHolds: [
     {
       id: "T001",
       apv: "APV1",
@@ -862,10 +1624,19 @@ const mockData = {
     "FANILO",
     "GARDE D'HONNEUR"
   ],
-  VovonaCategories: [
+  holyGroupmentCategories: [
     "Vona Olondehibe",
     "Vona Tanora",
     "Vahatra",
+  ],
+
+  commissionCategories: [
+    "Vaomiera Fandaminana",
+    "Vaomiera Litorijia",
+    "Vaomiera Fanatanjahantena",
+    "Vaomiera Fampianarana",
+    "Vaomiera Fampandrosoana",
+    "Vaomiera Sosialy"
   ],
 
   calendarEvents: [

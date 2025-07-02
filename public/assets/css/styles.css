@@ -206,8 +206,8 @@ p {
 }
 
 .priest-photo {
-  width: 80px;
-  height: 80px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--vatican-gold);
@@ -1192,6 +1192,57 @@ ul li {
 }
 
 
+/* Faritra Card */
+.faritra-card {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* APV List Styles */
+.apv-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.apv-item {
+  position: relative;
+  background-color: #e9ecef;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.apv-item:hover {
+  background-color: #d6d6d6;
+}
+
+/* Tooltip Style */
+.apv-tooltip {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.75rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  white-space: nowrap;
+  min-width: 150px;
+  text-align: left;
+  font-size: 0.85rem;
+  color: #333;
+  pointer-events: none;
+}
+
 /* App.css or HomePage.css */
 
 .horizontal-stats-container {
@@ -1300,4 +1351,220 @@ ul li {
 .list-item.muted {
   color: #aaa;
   font-style: italic;
+}
+
+.church-team-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.team-column {
+  flex: 1;
+  background-color: #fff;
+  padding: 0.75rem;
+  border-radius: 6px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.team-column h5 {
+  margin-top: 0;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.team-column ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.team-column li {
+  margin-bottom: 0.3rem;
+}
+
+/* Section Groups */
+.section-group {
+  margin-bottom: 1.5rem;
+}
+
+.section-group h5 {
+  margin-bottom: 0.75rem;
+}
+
+/* Category Groups */
+.category-group h6 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.category-group ul {
+  list-style: disc inside;
+  padding-left: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.category-group li {
+  margin-bottom: 0.3rem;
+}
+
+/* Member Count Badge */
+.member-count {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-left: 0.5rem;
+}
+
+/* Muted text */
+.muted {
+  font-style: italic;
+  color: #888;
+}
+
+/* Expandable Category */
+.expandable-category {
+  position: relative;
+}
+
+.category-header {
+  background: none;
+  border: none;
+  text-align: left;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.4rem 0;
+  margin-bottom: 0.2rem;
+}
+
+.arrow {
+  margin-left: 0.5rem;
+}
+
+.tooltip-popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.75rem;
+  z-index: 1000;
+  min-width: 200px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.tooltip-popup h6 {
+  margin-top: 0;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.tooltip-list {
+  list-style: disc inside;
+  padding-left: 1rem;
+  margin: 0;
+}
+
+.tooltip-list li {
+  word-break: break-word;
+}
+
+.muted {
+  color: #888;
+  font-style: italic;
+}
+
+/* Responsive Folded Cards / Columns */
+.dashboard-section .dashboard-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.dashboard-card {
+  flex: 1 1 calc(33.333% - 1rem); /* Three columns */
+  min-width: 280px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Top Folded Card */
+.top-folded-card .card-folds {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+  margin-bottom: 2rem;
+}
+
+.fold {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.fold.left,
+.fold.right {
+  flex: 0 0 25%;
+  max-width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fold.middle {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+/* Priest Image */
+.priest-image {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Church Logo */
+.church-logo-img {
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  object-fit: contain;
+}
+
+.message-content {
+  line-height: 1.6;
+}
+
+.message-content blockquote {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #555;
+  border-left: 3px solid #007bff;
+  padding-left: 1rem;
+}
+
+@media (max-width: 960px) {
+  .dashboard-card {
+    flex: 1 1 calc(50% - 1rem); /* Two columns on tablet */
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-card {
+    flex: 1 1 100%; /* One column on mobile */
+  }
 }

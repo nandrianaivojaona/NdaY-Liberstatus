@@ -1,0 +1,358 @@
+/* src/styles/HomePage.css */
+
+/* Vatican Color Scheme */
+:root {
+    --vatican-white: #F4F4F4;
+    --vatican-gold: #B38B59;
+    --vatican-yellow: #FFD700;
+    --vatican-red: #BA0C2F;
+    --vatican-dark: #1A1A1A;
+  }
+  
+  /* Base Styles */
+  .vatican-container {
+    background-color: var(--vatican-white);
+    color: var(--vatican-dark);
+    font-family: 'Times New Roman', serif;
+    line-height: 1.6;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Vatican Header */
+  .vatican-header {
+    text-align: center;
+    padding: 2rem 0;
+    position: relative;
+    border-bottom: 2px solid var(--vatican-gold);
+    margin-bottom: 2rem;
+  }
+  
+  .vatican-coat-of-arms {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1rem;
+    position: relative;
+    background-color: var(--vatican-red);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+    .vatican-coat-of-arms img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3px solid var(--vatican-gold);
+    }
+  
+  /* Removed empty ruleset for .papal-tiara */
+  
+  .vatican-title {
+    font-size: 2.5rem;
+    color: var(--vatican-red);
+    margin: 0.5rem 0;
+    font-weight: normal;
+    letter-spacing: 1px;
+  }
+  
+  .vatican-subtitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: var(--vatican-gold);
+    font-style: italic;
+  }
+  
+  .vatican-divider {
+    color: var(--vatican-dark);
+  }
+  
+  /* Papal Message Card */
+  .vatican-message-card {
+    display: flex;
+    background: linear-gradient(to right, var(--vatican-white) 0%, #FFFFFF 100%);
+    border: 1px solid var(--vatican-gold);
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .papal-portrait {
+    flex: 0 0 250px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--vatican-white);
+    border-right: 1px solid var(--vatican-gold);
+  }
+  
+  .papal-portrait img {
+    width: 180px;
+    height: 220px;
+    object-fit: cover;
+    border: 3px solid var(--vatican-gold);
+  }
+  
+  .papal-signature {
+    margin-top: 1rem;
+    font-style: italic;
+    color: var(--vatican-red);
+  }
+  
+  .papal-message {
+    flex: 1;
+    padding: 2rem;
+    position: relative;
+  }
+  
+  .message-title {
+    color: var(--vatican-red);
+    border-bottom: 1px solid var(--vatican-gold);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .vatican-icon {
+    color: var(--vatican-gold);
+    margin-right: 0.5rem;
+  }
+  
+  .latin-intro, .latin-outro {
+    font-style: italic;
+    color: var(--vatican-gold);
+  }
+  
+  /* Vatican Columns Layout */
+  .vatican-columns {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .vatican-column {
+    flex: 1;
+    padding: 1.5rem;
+    background-color: white;
+    border: 1px solid var(--vatican-gold);
+  }
+  
+  .column-title {
+    color: var(--vatican-red);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .column-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: var(--vatican-gold);
+    margin: 0.5rem auto;
+  }
+  
+  /* Clergy Column */
+  .clergy-card {
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .clergy-name {
+    font-size: 1.2rem;
+    color: var(--vatican-red);
+    margin: 0.5rem 0;
+  }
+  
+  .clergy-details {
+    font-size: 0.9rem;
+    color: var(--vatican-dark);
+  }
+  
+  .detail-label {
+    font-weight: bold;
+    color: var(--vatican-gold);
+  }
+  
+  /* Council Column */
+  .council-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .council-member {
+    padding: 0.8rem 0;
+    border-bottom: 1px dashed var(--vatican-gold);
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .member-role {
+    color: var(--vatican-gold);
+  }
+  
+  .member-name {
+    font-weight: bold;
+  }
+  
+  /* Stats Column */
+  .vatican-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .stat-item {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--vatican-white);
+    border: 1px solid var(--vatican-gold);
+  }
+  
+  .stat-value {
+    font-size: 1.8rem;
+    color: var(--vatican-red);
+    font-weight: bold;
+  }
+  
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--vatican-dark);
+  }
+  
+  /* Chart Card */
+  .vatican-chart-card {
+    background-color: white;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    border: 1px solid var(--vatican-gold);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .chart-title {
+    color: var(--vatican-red);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .chart-container {
+    height: 400px;
+    position: relative;
+  }
+  
+  /* Faritra Cards */
+  .vatican-faritra-container {
+    margin-bottom: 3rem;
+  }
+  
+  .section-title {
+    color: var(--vatican-red);
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: var(--vatican-gold);
+    margin: 0.5rem auto;
+  }
+  
+  .faritra-card {
+    background-color: white;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--vatican-gold);
+    position: relative;
+  }
+  
+  .faritra-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .faritra-coat-of-arms {
+    width: 60px;
+    height: 60px;
+    background-color: var(--vatican-red);
+    border-radius: 50%;
+  }
+  
+  /* Liturgical Calendar */
+  .vatican-calendar {
+    background-color: white;
+    padding: 2rem;
+    border: 1px solid var(--vatican-gold);
+  }
+  
+  .calendar-title {
+    color: var(--vatican-red);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .liturgical-events {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .liturgical-event {
+    padding: 1rem;
+    border-left: 4px solid var(--vatican-gold);
+    background-color: var(--vatican-white);
+  }
+  
+  .today-event {
+    border-left-color: var(--vatican-red);
+    background-color: #FFF9F9;
+  }
+  
+  .event-date {
+    font-weight: bold;
+    color: var(--vatican-red);
+  }
+  
+  .event-title {
+    color: var(--vatican-dark);
+    margin: 0.5rem 0;
+  }
+  
+  /* Vatican Footer */
+  .vatican-footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid var(--vatican-gold);
+    color: var(--vatican-gold);
+  }
+  
+  .latin-footer {
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .vatican-columns {
+      flex-direction: column;
+    }
+    
+    .vatican-message-card {
+      flex-direction: column;
+    }
+    
+    .papal-portrait {
+      border-right: none;
+      border-bottom: 1px solid var(--vatican-gold);
+    }
+  }
