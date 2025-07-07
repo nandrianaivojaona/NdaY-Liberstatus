@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  background-color: #fdfaf5;
+  color: #2e4b28;
+}
+.admin-console {
+  font-family: 'Cinzel', serif;
+  background-color: #fdfaf5;
+  color: #2e4b28;
+}
+
+.parish-header {
+  background-color: #6B0F1A;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-center h2 {
+  margin: 0.25rem 0;
+  font-size: 1.2rem;
+}
+
+.header-center p {
+  margin: 0.1rem 0;
+  font-size: 0.9rem;
+}
+
+.admin-main {
+  padding: 2rem;
+}
+
+.territory-tree ul {
+  list-style-type: none;
+  padding-left: 1.5rem;
+}
+
+.territory-tree li {
+  margin: 0.25rem 0;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.users-table th,
+.users-table td {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.users-table th {
+  background-color: #6B0F1A;
+  color: white;
+}
+
+.admin-footer {
+  background-color: #6B0F1A;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-footer img {
+  height: 40px;
+}
+
+header.parish-header {
+  background-color: #6B0F1A;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+main.admin-main {
+  padding: 2rem;
+}
+
+footer.admin-footer {
+  background-color: #6B0F1A;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+.horizontal-menu {
+    background-color: #eee;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .horizontal-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .horizontal-menu li a {
+    text-decoration: none;
+    color: #2e4b28;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .horizontal-menu li a:hover {
+    color: #6B0F1A;
+  }

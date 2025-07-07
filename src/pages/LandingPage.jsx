@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import mockData from '../data/mockData';
+import { useAuth } from '../context/AuthContext';
+import { hasPermission } from '../src-admin-console/utils/permissionUtils';
 
 export default function LandingPage({ onTerritorySelect }) {
+  const navigate = useNavigate();
+  const { currentUser, login } = useAuth();
+
+  // Territory selection state
   const [archdioceses, setArchdioceses] = useState(mockData.territories.archdioceses);
   const [selectedArchdiocese, setSelectedArchdiocese] = useState('');
   const [selectedArchdioceseId, setSelectedArchdioceseId] = useState('');
@@ -25,7 +32,22 @@ export default function LandingPage({ onTerritorySelect }) {
   // Track full hierarchy for final return
   const [territoryChain, setTerritoryChain] = useState(null);
 
-  // Initialize on mount
+  // Sign-in form state
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(!!currentUser);
+
+  // Auto-select parish if user already exists
+  useEffect(() => {
+    if (currentUser && currentUser.parish) {
+      setSelectedParish(currentUser.name);
+      setSelectedParishId(currentUser.parish);
+      navigate(`/app/${currentUser.parish}`);
+    }
+  }, [currentUser, navigate]);
+
+  // Initialize on mount Populate ArchDioceses
   useEffect(() => {
     console.log("✅ LandingPage mounted");
     if (mockData.territories?.archdioceses?.length > 0) {
@@ -155,14 +177,42 @@ export default function LandingPage({ onTerritorySelect }) {
     setSelectedParish(name);
     setSelectedParishId(parish.id);
   };
+  // Handle Inline Sign-In 
+  const handleSignIn = (e) => { 
+    e.preventDefault(); 
+    const user = mockData.users.find(u => u.email === email && u.password === password); 
+    if (user) { login(user); setIsLoggedIn(true); 
+      if (hasPermission(user, 'admin_parish')) { 
+        navigate(`/app/admin_console/${user.parish}`); } 
+        else if (user.role === mockData.ROLES.apv || user.role === mockData.ROLES.family) { 
+          navigate(`/app/${user.parish}`); } 
+          else { 
+            navigate(`/app/${selectedParishId || 'PAR001'}`); 
+          } 
+        } else { 
+          setError("Invalid email or password"); }
+        };
 
+        // Handle Selecting Parish and Navigate
+        const handleContinue = () => {
+          if (!selectedParishId) {
+            alert("⚠️ Safidio ny Paroasy aloha");
+            return;
+          }
+      
+          if (isLoggedIn) {
+            navigate(`/app/${selectedParishId}`);
+          } else {
+            navigate(`/app/${selectedParishId}`);
+          }
+        };       
   return (
     <section className="landing-page" style={{ display: 'block', visibility: 'visible' }}>
       {/* Header */}
       <header style={{ textAlign: 'center', marginBottom: '20px' }}>
         <h1 style={{ visibility: 'visible' }}>Tonga Soa</h1>
         <img
-          src="../public/assets/images/Flag_Of_Vatican_City.png"
+          src="../../public/assets/images/Flag_Of_Vatican_City.png"
           alt="Vatican Logo"
           style={{
             width: '100px',
@@ -174,6 +224,26 @@ export default function LandingPage({ onTerritorySelect }) {
         <h2 style={{ visibility: 'visible' }}>Fifidianana Fiangonana anaty Rafitra Katolika</h2>
         <h3 style={{ visibility: 'visible' }}>Safidio ny Paroasy na Fiangonana</h3>
       </header>
+      
+      {/* Sign In Section (Top Right) */}
+      {!isLoggedIn && (
+        <div className="sign-in-form" style={{
+          position: 'absolute',
+          top: '20px',
+          right: '20px'
+        }}>
+          <form onSubmit={handleSignIn} style={{ textAlign: 'right' }}>
+            <label>Email:</label><br />
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required /><br />
+
+            <label>Password:</label><br />
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required /><br />
+
+            <button type="submit">Hiditra</button>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+          </form>
+        </div>
+      )}
 
       {/* Archdiocese Selection */}
       <div className="step">
@@ -268,6 +338,12 @@ export default function LandingPage({ onTerritorySelect }) {
           </select>
         </div>
       )}
+
+    {/* Continue Button */}
+      <button onClick={handleContinue} disabled={!selectedParishId}>
+        Avy eo ➡️
+      </button>
+
     </section>
   );
 }

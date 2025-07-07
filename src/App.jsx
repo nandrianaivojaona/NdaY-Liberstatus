@@ -3,6 +3,7 @@ import mockData from './data/mockData';
 import LandingPage from './pages/LandingPage';
 import HomePage from './pages/HomePage';
 import Layout from './components/Layout';
+//import ImprovedHomePage from './pages/ImprovedHomePage';
 
 export default function App() {
   const [selectedTerritory, setSelectedTerritory] = useState(null);

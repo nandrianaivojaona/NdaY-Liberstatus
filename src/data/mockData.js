@@ -48,66 +48,55 @@ const mockData = {
       email: "parish-leader2@example.com",
       password: "123",
       role: ROLES.parish_leader,
-      name: "Pdte ...Aina",
+      name: "Pdte R. Aina",
       archdiocese: "ARCH001",
       diocese: "DI001",
       vicariate: "VIK001",
       district: "DIS001",
       parish: "PAR001"
     },
-
-    // Faritra Leader
     {
       id: "PAR001_U003",
-      email: "faritra@example.com",
+      email: "parish-leader3@example.com",
       password: "123",
-      role: ROLES.faritra,
-      name: "Judith",
+      role: ROLES.parish_leader,
+      name: "R. Julio",
       archdiocese: "ARCH001",
       diocese: "DI001",
       vicariate: "VIK001",
       district: "DIS001",
-      parish: "PAR001",
-      faritra: "FAR001"
+      parish: "PAR001"
     },
-
-    // APV Leader
     {
       id: "PAR001_U004",
-      email: "apv@example.com",
+      email: "parish_secretary@example.com",
       password: "123",
-      role: ROLES.apv,
-      name: "Lydie",
+      role: ROLES.holyAssociations_leader,
+      name: "R. Sahondra",
       archdiocese: "ARCH001",
       diocese: "DI001",
       vicariate: "VIK001",
       district: "DIS001",
-      parish: "PAR001",
-      faritra: "FAR001",
-      apv: "APV001"
+      parish: "PAR001"
     },
-
-    // Family Head
     {
       id: "PAR001_U005",
-      email: "family-head@example.com",
+      email: "parish-secretary2@example.com",
       password: "123",
-      role: ROLES.family,
-      name: "Jean Rakoto",
+      role: ROLES.parish_leader,
+      name: "Rasoanaivo",
       archdiocese: "ARCH001",
       diocese: "DI001",
       vicariate: "VIK001",
       district: "DIS001",
-      parish: "PAR001",
-      faritra: "FAR001",
-      apv: "APV001"
+      parish: "PAR001"
     },
     {
-      id: "PAR001_U006",
+      id: "PAR001_U005",
       email: "caes-leader@example.com",
       password: "123",
       role: ROLES.parish_leader,
-      name: "R. Hery",
+      name: "R. Hery Filoha CAES",
       archdiocese: "ARCH001",
       diocese: "DI001",
       vicariate: "VIK001",
@@ -119,7 +108,7 @@ const mockData = {
       email: "ha-leader@example.com",
       password: "123",
       role: ROLES.holyAssociations_leader,
-      name: "R. Mamy",
+      name: "R. Mamy Filoha HA",
       archdiocese: "ARCH001",
       diocese: "DI001",
       vicariate: "VIK001",
@@ -128,9 +117,9 @@ const mockData = {
     },
     {
       id: "PAR001_U008",
-      email: "parish-leader@example.com",
+      email: "parish-councilsGroups@example.com",
       password: "123",
-      role: ROLES.parish_leader,
+      role: ROLES.councilsGroups_leader,
       name: "Melanie Rasoanaivo",
       archdiocese: "ARCH001",
       diocese: "DI001",
@@ -143,7 +132,7 @@ const mockData = {
       email: "parish-leader@example.com",
       password: "123",
       role: ROLES.parish_leader,
-      name: "Rabelaisoa",
+      name: "Rabehevitra",
       archdiocese: "ARCH001",
       diocese: "DI001",
       vicariate: "VIK001",
@@ -152,16 +141,119 @@ const mockData = {
     },
     {
       id: "PAR001_U010",
-      email: "parish-leader@example.com",
+      email: "parish-commissions@example.com",
       password: "123",
       role: ROLES.parish_leader,
-      name: "Rakoto",
+      name: "Rakoto Vaomiera",
       archdiocese: "ARCH001",
       diocese: "DI001",
       vicariate: "VIK001",
       district: "DIS001",
       parish: "PAR001"
     },
+
+    // Faritra Leader
+    {
+      id: "FAR001_U001",
+      email: "faritra@example.com",
+      password: "123",
+      role: ROLES.faritra,
+      name: "Judith",
+      archdiocese: "ARCH001",
+      diocese: "DI001",
+      vicariate: "VIK001",
+      district: "DIS001",
+      parish: "PAR001",
+      faritra: "FAR001"
+    },
+    {
+      id: "FAR002_U001",
+      email: "faritra@example.com",
+      password: "123",
+      role: ROLES.faritra,
+      name: "Pdte Judicaelle",
+      archdiocese: "ARCH001",
+      diocese: "DI001",
+      vicariate: "VIK001",
+      district: "DIS001",
+      parish: "PAR001",
+      faritra: "FAR002"
+    },
+
+    // APV Leader
+    {
+      id: "APV001_U001",
+      email: "apv@example.com",
+      password: "123",
+      role: ROLES.apv,
+      name: "Lydie",
+      archdiocese: "ARCH001",
+      diocese: "DI001",
+      vicariate: "VIK001",
+      district: "DIS001",
+      parish: "PAR001",
+      faritra: "FAR001",
+      apv: "APV001"
+    },
+    {
+      id: "APV002_U001",
+      email: "apv@example.com",
+      password: "123",
+      role: ROLES.apv,
+      name: "Ramatoa Lydie",
+      archdiocese: "ARCH001",
+      diocese: "DI001",
+      vicariate: "VIK001",
+      district: "DIS001",
+      parish: "PAR001",
+      faritra: "FAR001",
+      apv: "APV002"
+    },
+    {
+      id: "APV003_U001",
+      email: "apv@example.com",
+      password: "123",
+      role: ROLES.apv,
+      name: "Mlle Sylvie",
+      archdiocese: "ARCH001",
+      diocese: "DI001",
+      vicariate: "VIK001",
+      district: "DIS001",
+      parish: "PAR001",
+      faritra: "FAR001",
+      apv: "APV003"
+    },
+    {
+      id: "APV004_U001",
+      email: "apv@example.com",
+      password: "123",
+      role: ROLES.apv,
+      name: "Mlle Hanta",
+      archdiocese: "ARCH001",
+      diocese: "DI001",
+      vicariate: "VIK001",
+      district: "DIS001",
+      parish: "PAR001",
+      faritra: "FAR001",
+      apv: "APV004"
+    },
+
+    // Family Head
+    {
+      id: "APV001_U001",
+      email: "family-head@example.com",
+      password: "123",
+      role: ROLES.family,
+      name: "Jean Rakoto",
+      archdiocese: "ARCH001",
+      diocese: "DI001",
+      vicariate: "VIK001",
+      district: "DIS001",
+      parish: "PAR001",
+      faritra: "FAR001",
+      apv: "APV001"
+    },
+    
   ],
 
   believers: [
@@ -192,7 +284,7 @@ const mockData = {
       lastActivityPlace: "St. Louis Ambohinierana",
       family: "FAM001",
       roofHousehold: "T001",
-      apv: "APV1",
+      apv: "APV001",
       zone: "FA001",
       parish: "PAR001",
       district: "DIS001",
@@ -222,7 +314,7 @@ const mockData = {
       status: "inactive",
       family: "FAM001",
       roofHouseHold: "T001",
-      apv: "APV1",
+      apv: "APV001",
       zone: "FA001",
       parish: "PAR001",
       district: "DIS001",
@@ -254,7 +346,7 @@ const mockData = {
       status: "Morts",
       family: "FAM002",
       roofHouseHolds: "T002",
-      apv: "APV2",
+      apv: "APV002",
       zone: "FA001",
       parish: "PAR001",
       district: "DIS001",
@@ -286,7 +378,7 @@ const mockData = {
       status: "Morts",
       family: "FAM002",
       roofHouseHolds: "T002",
-      apv: "APV2",
+      apv: "APV002",
       zone: "FA001",
       parish: "PAR001",
       district: "DIS001",
@@ -318,7 +410,7 @@ const mockData = {
       status: "Morts",
       family: "FAM002",
       roofHouseHold: "T002",
-      apv: "APV2",
+      apv: "APV002",
       zone: "FA001",
       parish: "PAR001",
       district: "DIS001",
@@ -351,7 +443,7 @@ const mockData = {
       status: "active",
       family: "FAM002",
       roofHouseHold: "T002",
-      apv: "APV2",
+      apv: "APV002",
       zone: "FA002",
       parish: "PAR001",
       district: "DIS001",
@@ -381,7 +473,7 @@ const mockData = {
       status: "active",
       family: "FAM003",
       roofHouseHold: "T003",
-      apv: "APV3",
+      apv: "APV003",
       zone: "FA003",
       parish: "PAR001",
       district: "DIS001",
@@ -411,7 +503,7 @@ const mockData = {
       status: "active",
       family: "FAM003",
       roofHouseHold: "T003",
-      apv: "APV3",
+      apv: "APV003",
       zone: "FA003",
       parish: "PAR001",
       district: "DIS001",
@@ -441,7 +533,7 @@ const mockData = {
       status: "active",
       family: "FAM004",
       roofHouseHold: "T004",
-      apv: "APV4",
+      apv: "APV004",
       zone: "FA004",
       parish: "PAR001",
       district: "DIS001",
@@ -471,7 +563,7 @@ const mockData = {
       status: "active",
       family: "FAM004",
       roofHouseHold: "T004",
-      apv: "APV4",
+      apv: "APV004",
       zone: "FA004",
       parish: "PAR001",
       district: "DIS001",
@@ -594,7 +686,7 @@ const mockData = {
             vicariates: [
               {
                 id: "VIK001",
-                name: "Vikaria Atsinana",
+                name: "Vikaria Atsinanana",
                 code: "VIK001",
                 execTeam: {
                   leader1: "",
@@ -616,19 +708,19 @@ const mockData = {
                     parishes: [
                       {
                         id: "PAR001",
-                        name: "Saint Louis Ambohinierana Parish",
+                        name: "Masindahy Louis Ambohinierana",
                         code: "PAR001",
                         logo: "logo_PAR001",
-                        address: "Alasora, Analamanga",
-                        priest: "Père Jean",
+                        address: "Alasora, Antananarivo Avaradrano, Analamanga",
+                        priest: "Père Ranofinidy Jean",
                         contact: "+261 32 95 999 60",
                         execTeam: {
                           president: "PAR001_U001", // Parish Leader
                           vicePresident1: "PAR001_U002", // Vice Parish Leader
-                          vicePresident2: "",
-                          treasurer: "",
-                          secretary: "",
-                          deputySecretary: "",
+                          vicePresident2: "PAR001_U003", // Vice Parish Leader
+                          treasurer: "PAR001_U004", // Treasurer
+                          secretary: "PAR001_U005", // Secretary
+                          deputySecretary: "PAR001_U006", // Deputy Secretary
                           advisor: ""
                         },
                         financesCouncil: [
@@ -637,7 +729,7 @@ const mockData = {
                             name: "CAES Alasora",
                             contact: "+261 32 95 999 61",
                             execTeam: {
-                              president: "U006",
+                              president: "PAR001_U006",
                               vicePresident1: "",
                               vicePresident2: "",
                               treasurer: "",
@@ -654,14 +746,14 @@ const mockData = {
                             category: "FIFAKRI",
                             contact: "",
                             execTeam: {
-                              president: "",
+                              president: "PAR001_U007",
                               vicePresident1: "",
                               vicePresident2: "",
                               treasurer: "",
                               secretary: "",
                               deputySecretary: ""
                             },
-                            memberIds: ["M001", "M002"]
+                            memberIds: ["PAR001_U007"]
                           }
                         ],
                         councilsGroups: [

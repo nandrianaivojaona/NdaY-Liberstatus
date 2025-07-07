@@ -44,7 +44,7 @@ export default function Layout({ children, parishName, showParishLogo = false, s
         <div className="header-right">
           <h2>{getParishName() || ""}</h2>
           <button id="sign-in-toggle">
-            <i className="fas fa-sign-in-alt"></i> Hiditra
+            <i className="fas fa-sign-in-alt"></i> Hiditra 
           </button>
         </div>
       </header>

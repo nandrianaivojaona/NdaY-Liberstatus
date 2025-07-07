@@ -1,5 +1,7 @@
 /* src/styles/HomePage.css */
-
+    /* ========================
+    Vatican HomePage Styles
+    ======================== */
 /* Vatican Color Scheme */
 :root {
     --vatican-white: #F4F4F4;
@@ -7,6 +9,231 @@
     --vatican-yellow: #FFD700;
     --vatican-red: #BA0C2F;
     --vatican-dark: #1A1A1A;
+    --vatican-light: #FFFFFF;
+    --vatican-gray: #F8F8F8;
+    --vatican-shadow: rgba(0, 0, 0, 0.1);
+    --vatican-border: #E0E0E0;
+
+ 
+ 
+ /* ============ BASE STRUCTURE ============ */
+ body {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+   background-color: var(--vatican-white);
+   color: var(--vatican-dark);
+   line-height: 1.6;
+   margin: 0;
+   padding: 0;
+ }
+ 
+ h1, h2, h3, h4, h5 {
+   color: var(--vatican-red);
+   margin-bottom: 0.5rem;
+ }
+ 
+ section {
+   margin-bottom: 2rem;
+ }
+ 
+ /* ============ CONTAINER ============ */
+ .vatican-container {
+   max-width: 1200px;
+   margin: auto;
+   padding: 20px;
+ }
+ 
+ /* ============ HEADER SECTION ============ */
+ .vatican-header {
+   text-align: center;
+   border-bottom: 2px solid var(--vatican-gold);
+   margin-bottom: 2rem;
+   padding-bottom: 1rem;
+ }
+ 
+ .vatican-coat-of-arms img {
+   width: 80px;
+   height: 80px;
+   border-radius: 50%;
+   border: 3px solid var(--vatican-gold);
+ }
+ 
+ .vatican-title {
+   font-size: 2rem;
+ }
+ 
+ .vatican-subtitle {
+   color: var(--vatican-gold);
+   font-style: italic;
+ }
+ 
+ /* ============ CARD LAYOUT ============ */
+ .dashboard-section {
+   background-color: #fff;
+   border: 1px solid var(--vatican-gold);
+   border-radius: 8px;
+   padding: 1rem;
+   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+ }
+ 
+ .card-folds {
+   display: flex;
+   gap: 1rem;
+   flex-wrap: wrap;
+ }
+ 
+ .fold {
+   flex: 1;
+   min-width: 280px;
+   background: var(--vatican-white);
+   padding: 1rem;
+   border-radius: 8px;
+   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+ }
+ 
+ /* ============ PRIEST MESSAGE ============ */
+ .priest-photo img,
+ .church-logo-img {
+   width: 100%;
+   max-width: 180px;
+   height: auto;
+   border-radius: 8px;
+   object-fit: cover;
+   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+ }
+ 
+ .priest-message .message-content {
+   font-size: clamp(1rem, 2vw, 1.3rem);
+   max-height: 250px;
+   overflow-y: auto;
+   padding-right: 0.5rem;
+ }
+ 
+ .message-content blockquote {
+   font-style: italic;
+   color: #666;
+   border-left: 3px solid var(--vatican-gold);
+   padding-left: 1rem;
+   margin-top: 1rem;
+ }
+ 
+ /* ============ TEAM COLUMNS ============ */
+ .church-team-columns {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+ }
+ 
+ .team-column {
+   flex: 1;
+   background: #fff;
+   padding: 0.75rem;
+   border-radius: 6px;
+   box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+   min-width: 250px;
+ }
+ 
+ .team-column ul {
+   list-style: none;
+   padding-left: 0;
+ }
+ 
+ .team-column li {
+   margin-bottom: 0.3rem;
+   font-size: 0.95rem;
+ }
+ 
+ /* ============ STATISTICS CHART ============ */
+ canvas {
+   width: 100%;
+   max-width: 100%;
+   display: block;
+ }
+ 
+ /* ============ FARITRA / TERRITORY ============ */
+ .horizontal-stats-scroll {
+   display: flex;
+   overflow-x: auto;
+   gap: 1rem;
+   padding: 1rem 0;
+ }
+ 
+ .apv-horizontal-list {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 0.5rem;
+ }
+ 
+ .apv-card {
+   background-color: #f8f8f8;
+   padding: 0.75rem;
+   border-radius: 6px;
+   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+   min-width: 180px;
+ }
+ 
+ /* ============ LITURGICAL CALENDAR ============ */
+ .calendar-section {
+   background: white;
+   padding: 1.5rem;
+   border-radius: 8px;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+   margin-top: 2rem;
+ }
+ 
+ .horizontal-event-list {
+   display: flex;
+   overflow-x: auto;
+   gap: 1rem;
+   padding-top: 0.5rem;
+ }
+ 
+ .event-card {
+   min-width: 260px;
+   background-color: #ffffff;
+   border-left: 4px solid var(--vatican-red);
+   padding: 1rem;
+   border-radius: 6px;
+   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+ }
+ 
+ .event-card.highlight {
+   background-color: #fff9f9;
+   border-left-color: var(--vatican-gold);
+ }
+ 
+ .event-header {
+   font-size: 1.1rem;
+   font-weight: bold;
+ }
+ 
+ .today-badge {
+   background: var(--vatican-yellow);
+   color: var(--vatican-dark);
+   font-size: 0.8rem;
+   padding: 0.25rem 0.5rem;
+   border-radius: 4px;
+   display: inline-block;
+   margin-bottom: 0.5rem;
+ }
+ 
+ /* ============ RESPONSIVENESS ============ */
+ @media (max-width: 768px) {
+   .card-folds,
+   .church-team-columns,
+   .horizontal-stats-scroll,
+   .horizontal-event-list {
+     flex-direction: column;
+   }
+ 
+   .fold,
+   .team-column,
+   .event-card {
+     min-width: 100%;
+   }
+ }
+  /* ========================
+      Vatican HomePage Styles
+      ======================== */
   }
   
   /* Base Styles */

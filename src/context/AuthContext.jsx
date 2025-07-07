@@ -1,9 +1,10 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import { auth } from '../services/firebase'; // Firebase auth instance
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import mockData from '../data/mockData';
 
 // 🔐 Create context
 const AuthContext = createContext();
 
+// 🧠 Custom hook to use auth context
 export function useAuth() {
   return useContext(AuthContext);
 }
@@ -11,45 +12,60 @@ export function useAuth() {
 // 🧱 AuthProvider component
 export default function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
-  const [loading, setLoading] = useState(true); // Wait for Firebase
+  const [loading, setLoading] = useState(true); // Simulate loading phase
 
-  // Listen for auth changes (Firebase)
+  // Simulate login delay (mimic Firebase)
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(user => {
-      if (user) {
-        console.log("🟢 User logged in:", user);
-        setCurrentUser({
-          id: user.uid,
-          email: user.email,
-          role: "Pretra", // This should come from DB later
-          isLoggedIn: true
-        });
-      } else {
-        console.log("🔴 No user signed in");
-        setCurrentUser({
-          role: "visitor",
-          isLoggedIn: false
-        });
-      }
-
+    // Simulate app init delay or fetch user logic
+    const timer = setTimeout(() => {
+      // For now, simulate no user logged in
+      setCurrentUser({
+        role: "visitor", // Default role
+        isLoggedIn: false
+      });
       setLoading(false);
-    });
+    }, 500);
 
-    return () => {
-      console.log("🟡 Unsubscribed from auth listener");
-      unsubscribe();
-    };
+    return () => clearTimeout(timer);
   }, []);
 
+  // 🎯 Mock Login Function
+  const login = (email, password) => {
+    const foundUser = mockData.users.find(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (foundUser) {
+      setCurrentUser({
+        ...foundUser,
+        isLoggedIn: true
+      });
+      return true;
+    } else {
+      alert("⚠️ Email na teny miafina tsy manan-kery");
+      return false;
+    }
+  };
+
+  // 🚪 Mock Logout Function
+  const logout = () => {
+    setCurrentUser({
+      role: "visitor",
+      isLoggedIn: false
+    });
+  };
+
+  // 📦 Context value passed down
   const value = {
     currentUser,
-    login: () => {}, // Placeholder – will be replaced with real logic
-    logout: () => {} // Same here
+    isAuthenticated: currentUser?.isLoggedIn || false,
+    login,
+    logout
   };
 
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {!loading ? children : <div>⏳ Fanakalozana anarana...</div>}
     </AuthContext.Provider>
   );
 }

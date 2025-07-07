@@ -1,0 +1,188 @@
+/* VaticanUnifiedStyle.css */
+
+:root {
+  --vatican-white: #f4f4f4;
+  --vatican-gold: #b38b59;
+  --vatican-yellow: #ffd700;
+  --vatican-red: #ba0c2f;
+  --vatican-dark: #1a1a1a;
+}
+
+body {
+  font-family: 'Times New Roman', serif;
+  background-color: var(--vatican-white);
+  color: var(--vatican-dark);
+  margin: 0;
+  padding: 0;
+}
+
+.vatican-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.vatican-header {
+  text-align: center;
+  border-bottom: 2px solid var(--vatican-gold);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.vatican-coat-of-arms img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid var(--vatican-gold);
+}
+
+.vatican-title {
+  font-size: 2rem;
+  color: var(--vatican-red);
+}
+
+.vatican-subtitle {
+  color: var(--vatican-gold);
+  font-style: italic;
+}
+
+.dashboard-section {
+  background-color: #fff;
+  border: 1px solid var(--vatican-gold);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+.card-folds {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.fold {
+  flex: 1;
+  min-width: 280px;
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--vatican-white);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.priest-image,
+.church-logo-img {
+  width: 100%;
+  max-width: 180px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.message-content {
+  font-size: 1rem;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.message-content blockquote {
+  font-style: italic;
+  color: #666;
+  border-left: 3px solid var(--vatican-gold);
+  padding-left: 1rem;
+  margin-top: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+canvas {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+.horizontal-stats-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.apv-horizontal-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.apv-card {
+  background-color: #f8f8f8;
+  padding: 0.75rem;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  min-width: 180px;
+}
+
+.calendar-section {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+.horizontal-event-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.event-card {
+  min-width: 260px;
+  background-color: #ffffff;
+  border-left: 4px solid var(--vatican-red);
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.event-card.highlight {
+  background-color: #fff9f9;
+  border-left-color: var(--vatican-gold);
+}
+
+.event-header {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.today-badge {
+  background: var(--vatican-yellow);
+  color: var(--vatican-dark);
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .card-folds,
+  .horizontal-stats-scroll,
+  .horizontal-event-list {
+    flex-direction: column;
+  }
+  .fold,
+  .event-card {
+    min-width: 100%;
+  }
+}

@@ -25,6 +25,8 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Times New Roman', serif;
   color: var(--vatican-red);
   margin: 0;
+  text-align: top;
+  padding: 0.5rem 0;
 }
 
 button {
@@ -71,6 +73,7 @@ p {
   border-radius: 8px;
   margin: 1.5rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  align-content: top;
 }
 
 /* === Card Components === */
